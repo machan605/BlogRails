@@ -1,0 +1,12 @@
+.trafel_img{
+	width: 120px;
+	height:120px;
+	background-image: url("idea.jpg");
+}
+
+.panel {
+	background-color: lightgrey;
+	padding: 15px 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}

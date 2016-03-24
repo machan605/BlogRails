@@ -1,0 +1,66 @@
+    <header class="intro-header header2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1><%= @post.title%></h1>
+                        <span class="meta"><%= link_to "Edit", edit_post_path(@post)%>
+	<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Desea Borrar el archivo??"} %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>
+                    <%= @post.body%>
+                    </p>
+                    <% if @post.comments.count > 0 %>
+                        <hr>
+                        <h2>Todos los comentarios</h2>
+                        <hr>
+                        <%= render @post.comments.order("created_at DESC") %>
+                    <% end %>
+                   
+                </div>
+            </div>
+        </div>
+    </article>            
+
+<div class="lightbg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2>Deje un comentario</h2>
+               <%= form_for [@post, @post.comments.build] do |f| %>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <%= f.label :name %>
+                            <%= f.text_field :name, class: "form-control",placeholder:"Titulo"%>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <%= f.label :body %>
+                            <%= f.text_area :body, class: "form-control",placeholder: "Comentario"%>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <%= f.submit class: "btn btn-default"%>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+

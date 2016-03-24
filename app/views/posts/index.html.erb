@@ -1,0 +1,38 @@
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>My blog</h1>
+                        <hr class="small">
+                        <span class="subheading">Blog con Rails</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<% @posts.each do |post|%>
+                 <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            <%= link_to post.title, post_path(post)%>
+                        </h2>
+                        
+                    </a>
+                    <p class="post-meta"><%= link_to "Edit", edit_post_path(post)%> |
+		<%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Desea Borrar el archivo??"} %></p>
+                </div>
+                <hr>
+				<%end%>
+
+                </div>
+            </div>
+ </div> 
+            
+

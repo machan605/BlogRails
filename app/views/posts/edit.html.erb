@@ -1,0 +1,29 @@
+    <header class="intro-header header2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1><%= @post.title%></h1>
+                        <span class="meta"><%= link_to "back", post_path(@post)%>
+	<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Desea Borrar el archivo??"} %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>
+						<%= render"form" %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article> 
+
+
+
+
